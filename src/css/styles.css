@@ -1,16 +1,46 @@
+/* @import "variables";
+@import "login";
+@import "grid";
+@import "aside";
+@import "nav";
+@import "reserved-room";
+@import "modal"; */
+
+html {
+  height: 100vh;
+}
+
 body {
+  /* font-family: $main-font; */
+  background-image: url(../images/lobby.jpg) no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
+}
+/* body {
   background: radial-gradient(
     circle,
     rgba(63, 94, 251, 1) 0%,
     rgba(252, 70, 107, 1) 100%
   );
-}
+} */
 
 * {
   border: 2px solid black;
 }
+
+.dashboard-view {
+  height: 100vh;
+}
+
+.hidden {
+  display: none;
+}
+
+/* @import "media";
 /* grid */
-.grid-container {
+/* .grid-container {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -21,17 +51,17 @@ body {
     "aside section section"
     "aside section section";
   margin: 20px;
-}
+} */
 /* grid */
-#reservationArea {
+/* #reservationArea {
   grid-area: aside;
-}
+} */
 /* grid */
-#roomsDisplay {
+/* #roomsDisplay {
   grid-area: section;
   display: flex;
   flex-direction: column;
   margin: 20px;
   align-items: center;
   overflow-y: scroll;
-}
+} */
