@@ -2,29 +2,26 @@ import { expect } from "chai";
 import Guest from "../src/classes/Guest";
 
 describe("Guest", () => {
-  let customersData14,
-    customersData15,
-    customersData16,
+  let customersData,
+    // customersData15,
+    // customersData16,
+    guest14,
+    guest15,
+    guest16,
     bookingsData,
     roomsData;
 
   beforeEach(() => {
     //customers dataset is an array of objects
-    customersData14 = [
+    customersData = [
       {
         id: 14,
         name: "Dallas Schultz",
       },
-    ];
-
-    customersData15 = [
       {
         id: 15,
         name: "Maria Lakin",
       },
-    ];
-
-    customersData16 = [
       //he'll have no booking data, sad path tester
       {
         id: 16,
@@ -108,22 +105,22 @@ describe("Guest", () => {
         costPerNight: 350.31,
       },
     ];
-  });
 
-  guest14 = new Guest(customersData14);
-  guest15 = new Guest(customersData15);
-  guest16 = new Guest(customersData16);
+    guest14 = new Guest(customersData[0]);
+    guest15 = new Guest(customersData[1]);
+    guest16 = new Guest(customersData[2]);
+  });
 
   it("should be a function", () => {
     expect(Guest).to.be.a("function");
   });
 
   it("should be an instance of Guest", () => {
-    expect(guest).to.be.an.instanceOf(Guest);
+    expect(guest15).to.be.an.instanceOf(Guest);
   });
 
   it("should hold a single guest", () => {
-    expect(guest14.customer).to.equal(customersData14);
+    expect(guest14.customer).to.equal(customersData[0]);
   });
 
   it("should have a name", () => {
