@@ -56,15 +56,7 @@ it("should have an id", () => {
   expect(guest16.customer.id).to.equal(16);
 });
 
-// it("should have a pantry", () => {
-//   expect(guest.customer.pantry).to.equal(guestsData[0].pantry);
-// });
-
-// it("should be able to split guest's name", () => {
-//   expect(guest.returnGuestFirstName()).to.equal("Saige");
-//   expect(guest2.returnGuestFirstName()).to.equal("Ephraim");
-// });
-
-// it("should be able to favorite a recipe", () => {
-//   expect(guest.favoriteRecipes[0]).to.equal(recipeData[0]);
-// });
+it("should be able to split guest's name", () => {
+  expect(guest14.returnGuestFirstName()).to.equal("Dallas");
+  expect(guest16.returnGuestFirstName()).to.equal("Garry");
+});

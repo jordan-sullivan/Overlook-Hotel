@@ -1,3 +1,13 @@
+class Guest {
+  constructor(customer) {
+    this.customer = customer;
+  }
+
+  returnGuestFirstName() {
+    const splitName = this.customer.name.split(" ");
+    return splitName[0];
+  }
+}
 // 1. Dashboard
 // As a customer:
 //
