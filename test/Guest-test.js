@@ -141,7 +141,23 @@ describe("Guest", () => {
     expect(guest16.returnGuestFirstName()).to.equal("Garry");
   });
 
-  it("should hold the total amount a Guest has spent on all hotel stays", () => {
-    expect(guest14.returnTotalSpentonRooms()).to.equal(1000);
+  it("should store all the guests bookings both past and upcoming", () => {
+    expect(guest14.returnAllGuestsBookings()).to.equal(", ");
+    expect(guest15.returnAllGuestsBookings()).to.equal(", ");
+  });
+
+  it("should return an error message if the guest has no bookings", () => {
+    expect(guest16.returnAllGuestsBookings()).to.equal(
+      "Sorry, we couldn't find any booking for you."
+    );
+  });
+
+  it("should store the total amount a Guest has spent on all hotel stays", () => {
+    expect(guest14.returnTotalSpentonRooms()).to.equal("$1000.00");
+    expect(guest14.returnTotalSpentonRooms()).to.equal("$1000.00");
+  });
+
+  it("should store the total amount a Guest has spent even if they have spent no money on any hotel stays", () => {
+    expect(guest16.returnTotalSpentonRooms()).to.equal("$0");
   });
 });
