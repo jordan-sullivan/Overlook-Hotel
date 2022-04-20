@@ -8,7 +8,6 @@ describe("Guest", () => {
   let customersData, bookingsData, roomsData, guest14, guest15, guest16;
 
   beforeEach(() => {
-    //customers dataset is an array of objects
     customersData = [
       {
         id: 14,
@@ -18,7 +17,6 @@ describe("Guest", () => {
         id: 15,
         name: "Maria Lakin",
       },
-      //he'll have no booking data, sad path tester
       {
         id: 16,
         name: "Garry Mills",
@@ -26,7 +24,6 @@ describe("Guest", () => {
     ];
 
     bookingsData = [
-      //bookings data set is an array of objects
       {
         id: "5fwrgu4i7k55hl6tn",
         userID: 15,
@@ -58,8 +55,8 @@ describe("Guest", () => {
         roomNumber: 22,
       },
     ];
+
     roomsData = [
-      //rooms data is an array of objects of room info NO customer ID
       {
         number: 5,
         roomType: "single room",
@@ -105,6 +102,8 @@ describe("Guest", () => {
     guest14 = new Guest(
       customersData[0],
       bookingsData.filter((booking) => booking.userID === 14)
+      //roomsData.filter((room) => room.number === booking.roomNumber);
+      //console.log("14", guest14);
     );
     guest15 = new Guest(
       customersData[1],
@@ -161,7 +160,6 @@ describe("Guest", () => {
       },
     ]),
       expect(guest15.bookingsData).to.deep.equal([
-        //bookings data set is an array of objects
         {
           id: "5fwrgu4i7k55hl6tn",
           userID: 15,
@@ -179,16 +177,16 @@ describe("Guest", () => {
 
   it("should return an error message if the guest has no bookings", () => {
     expect(guest16.returnNoBookingsMessage()).to.equal(
-      "Sorry, we couldn't find any bookings for you."
+      "It looks like you haven't stayed with us yet."
     );
   });
 
-  it.skip("should store the total amount a Guest has spent on all hotel stays", () => {
+  it("should store the total amount a Guest has spent on all hotel stays", () => {
     expect(guest14.returnTotalSpentonRooms()).to.equal("$1000.00");
     expect(guest14.returnTotalSpentonRooms()).to.equal("$1000.00");
   });
 
-  it.skip("should store the total amount a Guest has spent even if they have spent no money on any hotel stays", () => {
+  it.skip("should return $0 if a guest has spent no money on any hotel stays", () => {
     expect(guest16.returnTotalSpentonRooms()).to.equal("$0");
   });
 });

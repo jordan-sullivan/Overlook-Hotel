@@ -2,9 +2,10 @@ class Guest {
   constructor(customer, bookings) {
     this.name = customer.name;
     this.id = customer.id;
-    this.bookingsData = bookings;
-    this.roomsData = [];
-    //this.customersData = [];
+    this.username = `${customer.name}${customer.id}`;
+    this.bookingsData = bookings; //array of their bookings
+    this.roomsData = rooms;
+    this.totalSpent = 0;
   }
 
   returnGuestFirstName() {
@@ -14,19 +15,22 @@ class Guest {
 
   returnNoBookingsMessage() {
     if (this.bookingsData.length === 0) {
-      return "Sorry, we couldn't find any bookings for you.";
+      return "It looks like you haven't stayed with us yet.";
     }
   }
 
   returnTotalSpentonRooms() {
     // The total amount I have spent on rooms
-    //Once I have the returned array from the returnAllGuestsBookings(), I can match the roomNumber to the roomsData array room.costPerNight and get the returnTotalSpentonRooms//interpolate with a $
+    //Once I have the
+    //WHAT IS THE returned array from the returnAllGuestsBookings(),
+    // console.log(this.bookingsData.forEach((booking) => booking.roomNumber === ));
+    //I can match the
+    //roomNumber to the
+    //roomsData array room.costPerNight and get the //
+    //return TotalSpentonRooms
+    //interpolate with a $
   }
 }
-// 1. Dashboard
-// As a customer:
-//
-// I should see a dashboard page that shows me:
 
 // Iteration 2. Customer Interaction
 // As a customer:
