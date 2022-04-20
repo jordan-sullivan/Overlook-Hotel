@@ -1,15 +1,11 @@
 import { expect } from "chai";
 import Guest from "../src/classes/Guest";
 
+//NOTE: guests will refer to the guest interaction with the site,
+// customer will refer to the data information
+
 describe("Guest", () => {
-  let customersData,
-    // customersData15,
-    // customersData16,
-    guest14,
-    guest15,
-    guest16,
-    bookingsData,
-    roomsData;
+  let customersData, bookingsData, roomsData, guest14, guest15, guest16;
 
   beforeEach(() => {
     //customers dataset is an array of objects
@@ -106,9 +102,18 @@ describe("Guest", () => {
       },
     ];
 
-    guest14 = new Guest(customersData[0]);
-    guest15 = new Guest(customersData[1]);
-    guest16 = new Guest(customersData[2]);
+    guest14 = new Guest(
+      customersData[0],
+      bookingsData.filter((booking) => booking.userID === 14)
+    );
+    guest15 = new Guest(
+      customersData[1],
+      bookingsData.filter((booking) => booking.userID === 15)
+    );
+    guest16 = new Guest(
+      customersData[2],
+      bookingsData.filter((booking) => booking.userID === 16)
+    );
   });
 
   it("should be a function", () => {
@@ -119,18 +124,14 @@ describe("Guest", () => {
     expect(guest15).to.be.an.instanceOf(Guest);
   });
 
-  it("should hold a single guest", () => {
-    expect(guest14.customer).to.equal(customersData[0]);
-  });
-
   it("should have a name", () => {
-    expect(guest14.customer.name).to.equal("Dallas Schultz");
-    expect(guest15.customer.name).to.equal("Maria Lakin");
+    expect(guest14.name).to.equal("Dallas Schultz");
+    expect(guest15.name).to.equal("Maria Lakin");
   });
 
   it("should have an id", () => {
-    expect(guest15.customer.id).to.equal(15);
-    expect(guest16.customer.id).to.equal(16);
+    expect(guest15.id).to.equal(15);
+    expect(guest16.id).to.equal(16);
   });
 
   it("should be able to split guest's name", () => {
@@ -139,22 +140,55 @@ describe("Guest", () => {
   });
 
   it("should store all the guests bookings both past and upcoming", () => {
-    expect(guest14.returnAllGuestsBookings()).to.equal(", ");
-    expect(guest15.returnAllGuestsBookings()).to.equal(", ");
+    expect(guest14.bookingsData).to.deep.equal([
+      {
+        id: "5fwrgu4i7k55hl6u7",
+        userID: 14,
+        date: "2022/01/16",
+        roomNumber: 17,
+      },
+      {
+        id: "5fwrgu4i7k55hl6w2",
+        userID: 14,
+        date: "2022/01/26",
+        roomNumber: 15,
+      },
+      {
+        id: "5fwrgu4i7k55hl6wd",
+        userID: 14,
+        date: "2022/01/12",
+        roomNumber: 22,
+      },
+    ]),
+      expect(guest15.bookingsData).to.deep.equal([
+        //bookings data set is an array of objects
+        {
+          id: "5fwrgu4i7k55hl6tn",
+          userID: 15,
+          date: "2022/01/17",
+          roomNumber: 5,
+        },
+        {
+          id: "5fwrgu4i7k55hl6w1",
+          userID: 15,
+          date: "2022/02/19",
+          roomNumber: 8,
+        },
+      ]);
   });
 
   it("should return an error message if the guest has no bookings", () => {
-    expect(guest16.returnAllGuestsBookings()).to.equal(
-      "Sorry, we couldn't find any booking for you."
+    expect(guest16.returnNoBookingsMessage()).to.equal(
+      "Sorry, we couldn't find any bookings for you."
     );
   });
 
-  it("should store the total amount a Guest has spent on all hotel stays", () => {
+  it.skip("should store the total amount a Guest has spent on all hotel stays", () => {
     expect(guest14.returnTotalSpentonRooms()).to.equal("$1000.00");
     expect(guest14.returnTotalSpentonRooms()).to.equal("$1000.00");
   });
 
-  it("should store the total amount a Guest has spent even if they have spent no money on any hotel stays", () => {
+  it.skip("should store the total amount a Guest has spent even if they have spent no money on any hotel stays", () => {
     expect(guest16.returnTotalSpentonRooms()).to.equal("$0");
   });
 });

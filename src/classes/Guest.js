@@ -1,18 +1,26 @@
 class Guest {
-  constructor(customer) {
-    this.customer = customer;
+  constructor(customer, bookings) {
+    this.name = customer.name;
+    this.id = customer.id;
+    this.bookingsData = bookings;
+    this.roomsData = [];
+    //this.customersData = [];
   }
 
   returnGuestFirstName() {
-    const splitName = this.customer.name.split(" ");
+    const splitName = this.name.split(" ");
     return splitName[0];
   }
-  returnAllGuestsBookings() {
-    // Any room bookings I have made (past or present/upcoming)
+
+  returnNoBookingsMessage() {
+    if (this.bookingsData.length === 0) {
+      return "Sorry, we couldn't find any bookings for you.";
+    }
   }
+
   returnTotalSpentonRooms() {
     // The total amount I have spent on rooms
-    //
+    //Once I have the returned array from the returnAllGuestsBookings(), I can match the roomNumber to the roomsData array room.costPerNight and get the returnTotalSpentonRooms//interpolate with a $
   }
 }
 // 1. Dashboard
