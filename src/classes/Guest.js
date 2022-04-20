@@ -4,7 +4,7 @@ class Guest {
     this.id = customer.id;
     this.username = `${customer.name}${customer.id}`;
     this.bookingsData = bookings; //array of their bookings
-    this.roomsData = rooms;
+    this.roomsData = [];
     this.totalSpent = 0;
   }
 
