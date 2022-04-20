@@ -1,16 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
-</head>
-<body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overlook Hotel</title>
+  </head>
+  <body>
+    <nav>
+      <header>
+        <button class="gallery-button">Gallery</button>
+        <logo>The Overlook Hotel - Your Desert Oasis</logo>
+        <h1>Overlook Hotel</h1>
+        <button class="new-member-button">New Member?</button>
+      </header>
 
-</body>
+      <section class="user-view-page">
+        <h2>Welcome back, Erin!</h2>
+        <article>
+          <form class="user-account-info" action="drop-down">
+            <select class="username" id="userNameInput">
+              <option value="reservations">MY RESERVATIONS</option>
+              <option value="book-room">BOOK A ROOM</option>
+              <option value="previous-stays">VIEW PREVIOUS STAYS</option>
+              <option value="sign-out">SIGN OUT</option>
+            </select>
+          </form>
+        </article>
+      </section>
+    </nav>
+
+    <main class="grid-container" id="gridContainer">
+      <aside>
+        <form>
+          <div>
+            <h3>All Reservations</h3>
+            <p>Total Spent $$$</p>
+            <button>Book A Room</button>
+          </div>
+        </form>
+      </aside>
+
+      <section>
+        <article>
+          <div>
+            <img />
+          </div>
+          <section>
+            <div>
+              <h5>ROOM TYPE</h5>
+              <p>ROOM NUMBER</p>
+              <p>DETAILS</p>
+            </div>
+            <div>
+              <p>$$ per night</p>
+            </div>
+            <button>BOOK ROOM</button>
+          </section>
+        </article>
+      </section>
+    </main>
+    <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
+    <script src="bundle.js"></script>
+  </body>
 </html>
