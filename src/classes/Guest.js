@@ -7,15 +7,20 @@ class Guest {
     const splitName = this.customer.name.split(" ");
     return splitName[0];
   }
+  returnAllGuestsBookings() {
+    // Any room bookings I have made (past or present/upcoming)
+  }
+  returnTotalSpentonRooms() {
+    // The total amount I have spent on rooms
+    //
+  }
 }
 // 1. Dashboard
 // As a customer:
 //
 // I should see a dashboard page that shows me:
-// Any room bookings I have made (past or present/upcoming)
-// The total amount I have spent on rooms
-//
-// 2. Customer Interaction
+
+// Iteration 2. Customer Interaction
 // As a customer:
 //
 // I should be able to select a date for which I’d like to book a room for myself
