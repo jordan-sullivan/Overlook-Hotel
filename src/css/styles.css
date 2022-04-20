@@ -1,3 +1,37 @@
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
+}
+
+* {
+  border: 2px solid black;
+}
+/* grid */
+.grid-container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  grid-template-areas:
+    "aside section section"
+    "aside section section"
+    "aside section section";
+  margin: 20px;
+}
+/* grid */
+#reservationArea {
+  grid-area: aside;
+}
+/* grid */
+#roomsDisplay {
+  grid-area: section;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  align-items: center;
+  overflow-y: scroll;
 }
