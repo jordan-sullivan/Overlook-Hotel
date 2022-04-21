@@ -19,11 +19,7 @@ class Guest {
     }
   }
 
-  returnTotalSpentonRooms() {
-    // The total amount I have spent on rooms
-    //Once I have the
-    //WHAT IS THE returned array from the returnAllGuestsBookings(),
-    // console.log(this.bookingsData.forEach((booking) => booking.roomNumber === ));
+  returnTotalSpentonRooms(bookings) {
     //I can match the
     //roomNumber to the
     //roomsData array room.costPerNight and get the //

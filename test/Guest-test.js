@@ -101,14 +101,30 @@ describe("Guest", () => {
 
     guest14 = new Guest(
       customersData[0],
-      bookingsData.filter((booking) => booking.userID === 14)
-      //roomsData.filter((room) => room.number === booking.roomNumber);
-      //console.log("14", guest14);
+      bookingsData.filter((booking) => booking.userID === 14),
+
+      roomsData.reduce((guestRoomsDataArray, room) => {
+        bookingsData.forEach((booking) => {
+          if (room.number === booking.roomNumber) {
+            return guestRoomsDataArray.push(room.costPerNight);
+          }
+        });
+        console.log("THIS ONE", guestRoomsDataArray);
+        return guestRoomsDataArray;
+      }, [])
+      //JORDAN, START HERE ON THURSDAY! YOU GOT THIS!!!!!!
+      // .forEach((roomPrice) => (this.totalSpent += roomPrice))
     );
+    // console.log("$$$$$", this.totalSpent);
+    // return this.totalSpent;
+    // // console.log("14", guest14);
+    // console.log("BOOKING DATA", bookingsData);
+
     guest15 = new Guest(
       customersData[1],
       bookingsData.filter((booking) => booking.userID === 15)
     );
+
     guest16 = new Guest(
       customersData[2],
       bookingsData.filter((booking) => booking.userID === 16)
@@ -182,8 +198,8 @@ describe("Guest", () => {
   });
 
   it("should store the total amount a Guest has spent on all hotel stays", () => {
-    expect(guest14.returnTotalSpentonRooms()).to.equal("$1000.00");
-    expect(guest14.returnTotalSpentonRooms()).to.equal("$1000.00");
+    expect(guest14.returnTotalSpentonRooms(bookingsData)).to.equal("$1000.00");
+    expect(guest15.returnTotalSpentonRooms(bookingsData)).to.equal("$1000.00");
   });
 
   it.skip("should return $0 if a guest has spent no money on any hotel stays", () => {
