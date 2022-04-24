@@ -197,7 +197,7 @@ describe("Guest", () => {
       ]);
   });
 
-  it.skip("should return an error message if the guest has no bookings", () => {
+  it("should return an error message if the guest has no bookings", () => {
     expect(guest16.returnNoBookingsMessage()).to.equal(
       "It looks like you haven't stayed with us yet."
     );

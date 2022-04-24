@@ -26,11 +26,11 @@ class Guest {
   // console.log("result- bookingsInfo and ID", result, this.id);
   // return (result = this.bookingsInfo);
 
-  // returnNoBookingsMessage() {
-  //   if (this.bookingsData.length === 0) {
-  //     return "It looks like you haven't stayed with us yet.";
-  //   }
-  // }
+  returnNoBookingsMessage() {
+    if (this.bookingsInfo.length === 0) {
+      return "It looks like you haven't stayed with us yet.";
+    }
+  }
 
   // getRoomsInfo(roomsData, bookingsData) {
   //   console.log("RDRD", roomsData); // ALL the rooms data sets;
