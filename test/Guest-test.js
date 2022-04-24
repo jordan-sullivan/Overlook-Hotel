@@ -221,12 +221,16 @@ describe("Guest", () => {
     expect(guest16.getRoomsInfo(roomsData, bookingsData)).to.deep.equal([]);
   });
 
-  it.skip("should store the total amount a Guest has spent on all hotel stays", () => {
-    expect(guest14.returnTotalSpentonRooms(bookingsData)).to.equal("$1000.00");
-    expect(guest15.returnTotalSpentonRooms(bookingsData)).to.equal("$1000.00");
+  it("should store the total amount a Guest has spent on all hotel stays", () => {
+    expect(guest14.returnTotalSpentOnRooms(roomsData, bookingsData)).to.equal(
+      "$1000.00"
+    );
+    //expect(guest15.returnTotalSpentonRooms(bookingsData)).to.equal("$1000.00");
   });
 
   it.skip("should return $0 if a guest has spent no money on any hotel stays", () => {
-    expect(guest16.returnTotalSpentonRooms()).to.equal("$0");
+    expect(guest16.returnTotalSpentOnRooms(roomsData, bookingsData)).to.equal(
+      "$0"
+    );
   });
 });

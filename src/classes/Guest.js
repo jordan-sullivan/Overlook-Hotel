@@ -34,20 +34,32 @@ class Guest {
         }
       })
     );
+    console.log("this.roomsinfo", this.roomsInfo);
     return this.roomsInfo;
   }
 
-  returnTotalSpentonRooms(roomsData) {
-    // const total = roomsInfo.forEach((room) => {
-    //   console.log(room);
-    //   //this.totalSpent += room.
-    // });
-    //I can match the
-    //roomNumber to the
-    //roomsData array room.costPerNight and get the //
-    //return TotalSpentonRooms
-    //interpolate with a $
+  returnTotalSpentOnRooms(roomsInfo, bookingsData) {
+    console.log("44", roomsInfo);
+    this.bookingsInfo.forEach((booking) =>
+      roomsInfo.forEach((room) => {
+        if (booking.roomNumber === room.number) {
+          this.roomsInfo.push(room.costPerNight);
+        }
+      })
+    );
+    console.log("this.roomsinfo", this.roomsInfo);
+    return this.roomsInfo;
   }
+  //   this.roomsInfo.forEach((booking) =>
+  //     roomsData.forEach((room) => {
+  //       if (booking.roomNumber === room.number) {
+  //         console.log(this.roomsInfo.room.costperNight);
+  //         this.roomsInfo.push(room.costPerNight);
+  //       }
+  //     })
+  //   );
+  //   return (this.totalSpent += room.costPerNight);
+  // }
 }
 
 // sortBookingsByDate() {
