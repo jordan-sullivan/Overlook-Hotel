@@ -102,38 +102,6 @@ describe("Guest", () => {
     guest14 = new Guest(customersData[0], bookingsData, roomsData);
     guest15 = new Guest(customersData[1], bookingsData, roomsData);
     guest16 = new Guest(customersData[2], bookingsData, roomsData);
-
-    // .forEach((roomPrice) => (this.totalSpent += roomPrice))
-
-    // console.log("$$$$$", this.totalSpent);
-    // return this.totalSpent;
-    // // console.log("14", guest14);
-    // console.log("BOOKING DATA", bookingsData);
-
-    // guest14 = new Guest(
-    //   customersData[0],
-    //   bookingsData.filter((booking) => booking.userID === 14),
-    //
-    //   roomsData.reduce((roomTotals, room) => {
-    //     bookingsData.forEach((booking) => {
-    //       if (room.number === booking.roomNumber) {
-    //         return roomTotals.push(room.costPerNight);
-    //       }
-    //     });
-    //     console.log("ROOM TOTALS", roomTotals);
-    //     return roomTotals;
-    //   }, [])
-    // );
-
-    // guest15 = new Guest(
-    //   customersData[1],
-    //   bookingsData.filter((booking) => booking.userID === 15)
-    // );
-    //
-    // guest16 = new Guest(
-    //   customersData[2],
-    //   bookingsData.filter((booking) => booking.userID === 16)
-    // );
   });
 
   it("should be a function", () => {
@@ -160,7 +128,6 @@ describe("Guest", () => {
   });
 
   it("should store all the guests bookings both past and upcoming", () => {
-    //console.log("BookingsInfo for 14", guest14.bookingsInfo);
     expect(guest14.getBookingsInfo(bookingsData)).to.deep.equal([
       {
         id: "5fwrgu4i7k55hl6u7",
@@ -201,6 +168,35 @@ describe("Guest", () => {
     expect(guest16.returnNoBookingsMessage()).to.equal(
       "It looks like you haven't stayed with us yet."
     );
+  });
+
+  it("should store all the guests rooms they have stayed in both past and upcoming", () => {
+    expect(guest14.getRoomsInfo(roomsData, bookingsData)).to.deep.equal([
+      {
+        number: 17,
+        roomType: "junior suite",
+        bidet: false,
+        bedSize: "twin",
+        numBeds: 2,
+        costPerNight: 328.15,
+      },
+      {
+        number: 15,
+        roomType: "residential suite",
+        bidet: false,
+        bedSize: "full",
+        numBeds: 1,
+        costPerNight: 294.56,
+      },
+      {
+        number: 22,
+        roomType: "single room",
+        bidet: false,
+        bedSize: "full",
+        numBeds: 2,
+        costPerNight: 350.31,
+      },
+    ]);
   });
 
   it.skip("should store the total amount a Guest has spent on all hotel stays", () => {

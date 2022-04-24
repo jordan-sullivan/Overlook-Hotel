@@ -4,7 +4,7 @@ class Guest {
     this.id = customer.id;
     this.username = `${customer.name}${customer.id}`;
     this.bookingsInfo = this.getBookingsInfo(bookingsData);
-    //  this.roomsInfo = this.getRoomsInfo(roomsData);
+    this.roomsInfo = [];
     this.totalSpent = 0;
   }
 
@@ -14,17 +14,11 @@ class Guest {
   }
 
   getBookingsInfo(bookingsData) {
-    console.log("BDBDBDBDBD", bookingsData);
+    //console.log("BDBDBDBDBD", bookingsData);
     const booked = bookingsData.filter((booking) => booking.userID === this.id);
-    console.log("booked", booked);
+    //console.log("booked", booked);
     return booked;
   }
-
-  // let result = this.bookingsData.filter((booking) => {
-  //   return booking.userID === this.id;
-  // });
-  // console.log("result- bookingsInfo and ID", result, this.id);
-  // return (result = this.bookingsInfo);
 
   returnNoBookingsMessage() {
     if (this.bookingsInfo.length === 0) {
@@ -32,14 +26,16 @@ class Guest {
     }
   }
 
-  // getRoomsInfo(roomsData, bookingsData) {
-  //   console.log("RDRD", roomsData); // ALL the rooms data sets;
-  //   //want to get all this guests rooms in one array
-  //   let thisGuestsRooms = roomsData.filter((room) => {
-  //     console.log("BDBDBD", bookingsData);
-  //     console.log("BIBIIBIBI", this.bookingsInfo);
-  //     //room.number === booking.roomNumber
-  //   });
+  getRoomsInfo(roomsData, bookingsData) {
+    this.bookingsInfo.forEach((booking) =>
+      roomsData.forEach((room) => {
+        if (booking.roomNumber === room.number) {
+          this.roomsInfo.push(room);
+        }
+      })
+    );
+    return this.roomsInfo;
+  }
 
   //.reduce((roomTotals, room) => {
   //   this.bookingsData.forEach((booking) => {
