@@ -197,6 +197,28 @@ describe("Guest", () => {
         costPerNight: 350.31,
       },
     ]);
+    expect(guest15.getRoomsInfo(roomsData, bookingsData)).to.deep.equal([
+      {
+        number: 5,
+        roomType: "single room",
+        bidet: true,
+        bedSize: "queen",
+        numBeds: 2,
+        costPerNight: 340.17,
+      },
+      {
+        number: 8,
+        roomType: "junior suite",
+        bidet: false,
+        bedSize: "king",
+        numBeds: 1,
+        costPerNight: 261.26,
+      },
+    ]);
+  });
+
+  it("should return an empty array if the guest has never stayed in a room and has no upcoming room reservations", () => {
+    expect(guest16.getRoomsInfo(roomsData, bookingsData)).to.deep.equal([]);
   });
 
   it.skip("should store the total amount a Guest has spent on all hotel stays", () => {

@@ -37,24 +37,17 @@ class Guest {
     return this.roomsInfo;
   }
 
-  //.reduce((roomTotals, room) => {
-  //   this.bookingsData.forEach((booking) => {
-  //     if (room.number === booking.roomNumber) {
-  //       return roomTotals.push(room.costPerNight);
-  //     }
-  //   });
-  //   console.log("ROOM TOTALS", roomTotals);
-  //   return roomTotals;
-  // }, []);
-  //}
-
-  // returnTotalSpentonRooms(bookings, roomsData) {
-  //   //I can match the
-  //   //roomNumber to the
-  //   //roomsData array room.costPerNight and get the //
-  //   //return TotalSpentonRooms
-  //   //interpolate with a $
-  // }
+  returnTotalSpentonRooms(roomsData) {
+    // const total = roomsInfo.forEach((room) => {
+    //   console.log(room);
+    //   //this.totalSpent += room.
+    // });
+    //I can match the
+    //roomNumber to the
+    //roomsData array room.costPerNight and get the //
+    //return TotalSpentonRooms
+    //interpolate with a $
+  }
 }
 
 // sortBookingsByDate() {
