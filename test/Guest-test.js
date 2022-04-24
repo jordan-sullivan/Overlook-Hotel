@@ -223,7 +223,7 @@ describe("Guest", () => {
 
   it("should store the total amount a Guest has spent on all hotel stays", () => {
     expect(guest14.returnTotalSpentOnRooms(roomsData, bookingsData)).to.equal(
-      "$1000.00"
+      "$973.02"
     );
     //expect(guest15.returnTotalSpentonRooms(bookingsData)).to.equal("$1000.00");
   });
