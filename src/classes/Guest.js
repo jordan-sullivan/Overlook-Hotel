@@ -45,7 +45,7 @@ class Guest {
       acc += room.costPerNight;
       return acc;
     }, 0);
-    return (this.totalSpent = total);
+    return (this.totalSpent = total.toFixed(2));
   }
 }
 
