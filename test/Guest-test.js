@@ -232,4 +232,45 @@ describe("Guest", () => {
     guest16.getRoomsInfo(roomsData, bookingsData);
     expect(guest16.returnTotalSpentOnRooms()).to.equal("0.00");
   });
+
+  // it("should be able to sort a guests stays chronologically by date", () => {
+  //   expect(guest14.sortBookingsByDate()).to.deep.equal([
+  //     {
+  //       id: "5fwrgu4i7k55hl6wd",
+  //       userID: 14,
+  //       date: "2022/01/12",
+  //       roomNumber: 22,
+  //     },
+  //     {
+  //       id: "5fwrgu4i7k55hl6u7",
+  //       userID: 14,
+  //       date: "2022/01/16",
+  //       roomNumber: 17,
+  //     },
+  //     {
+  //       id: "5fwrgu4i7k55hl6w2",
+  //       userID: 14,
+  //       date: "2022/01/26",
+  //       roomNumber: 15,
+  //     },
+  //   ]);
+  //   expect(guest15.sortBookingsByDate()).to.deep.equal([
+  //     {
+  //       id: "5fwrgu4i7k55hl6tn",
+  //       userID: 15,
+  //       date: "2022/01/17",
+  //       roomNumber: 5,
+  //     },
+  //     {
+  //       id: "5fwrgu4i7k55hl6w1",
+  //       userID: 15,
+  //       date: "2022/02/19",
+  //       roomNumber: 8,
+  //     },
+  //   ]);
+  // });
+  //
+  // it.skip("should return an error message to the guest if they have never stayed at the hotel before and have no upcoming reservations", () => {
+  //   expect(guest16.sortBookingsByDate()).to.equal();
+  // });
 });
