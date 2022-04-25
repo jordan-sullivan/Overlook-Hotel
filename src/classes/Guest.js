@@ -27,43 +27,25 @@ class Guest {
   }
 
   getRoomsInfo(roomsData, bookingsData) {
-    this.bookingsInfo.forEach((booking) =>
+    this.bookingsInfo.forEach((booking) => {
       roomsData.forEach((room) => {
         if (booking.roomNumber === room.number) {
           this.roomsInfo.push(room);
         }
-      })
-    );
+      });
+    });
     console.log("this.roomsinfo", this.roomsInfo);
     return this.roomsInfo;
   }
 
-  returnTotalSpentOnRooms(roomsInfo, bookingsData) {
-    console.log("44", roomsInfo);
-    this.bookingsInfo.forEach((booking) =>
-      roomsInfo.forEach((room) => {
-        if (booking.roomNumber === room.number) {
-          this.roomsInfo.push(room.costPerNight);
-        }
-        this.totalSpent = 0;
-        this.roomsInfo.forEach((roomPrice) => {
-          this.totalSpent += roomPrice;
-        });
-        console.log("??????", this.totalSpent);
-        return this.totalSpent;
-        // let total = this.roomsInfo.reduce((acc, roomPrice) => {
-        //   console.log("RPRP", roomPrice);
-        //   console.log("acc", acc);
-        //   acc += room.costPerNight;
-        //   return acc;
-        // }, 0);
-      })
-    );
-    // console.log(
-    //   "this.roomsinfo are prices of each guests room costs",
-    //   this.roomsInfo
-    //);
-    //return total;
+  returnTotalSpentOnRooms() {
+    let total = this.roomsInfo.reduce((acc, room) => {
+      console.log("RPRP", room);
+      console.log("acc", acc);
+      acc += room.costPerNight;
+      return acc;
+    }, 0);
+    return (this.totalSpent = total);
   }
 }
 
