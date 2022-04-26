@@ -18,14 +18,6 @@ $room-card: rgba(55, 52, 52, 0.94);
 $fancy-font: 'Spectral', serif;
 $main-font: 'Raleway', sans-serif; */
 
-/* @import "variables";
-@import "login";
-@import "grid";
-@import "aside";
-@import "nav";
-@import "reserved-room";
-@import "modal"; */
-
 html {
   height: 100vh;
 }
@@ -42,7 +34,7 @@ body {
 
 nav {
   /* background-color: #3b6265; */
-  background-image: linear-gradient(#3b6265, #fbe7e9, #3b6265);
+  background-image: linear-gradient(#3b6265, #fbe7e9);
   width: 100vw;
   height: 120px;
   /* background-color: $black; */
