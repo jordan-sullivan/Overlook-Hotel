@@ -1,12 +1,27 @@
 import { expect } from "chai";
 import Hotel from "../src/classes/Hotel";
 import Guest from "../src/classes/Guest";
-
-//NOTE: guests will refer to the guest interaction with the site,
-// customer will refer to the data information
+//import Room from "../src/classes/Room";
+//import Booking from "../src/classes/Booking";
 
 describe("Hotel", () => {
-  let customersData, bookingsData, roomsData, guest14, guest15, guest16, hotel;
+  let customersData,
+    bookingsData,
+    roomsData,
+    guest14,
+    guest15,
+    guest16,
+    hotel,
+    booking1,
+    booking2,
+    booking3,
+    booking4,
+    room1,
+    room2,
+    room3,
+    bookingArray,
+    bookingArray2,
+    rooms;
 
   beforeEach(() => {
     customersData = [
@@ -103,8 +118,6 @@ describe("Hotel", () => {
     guest14 = new Guest(
       customersData[0],
       bookingsData.filter((booking) => booking.userID === 14)
-      //roomsData.filter((room) => room.number === booking.roomNumber);
-      //console.log("14", guest14);
     );
     guest15 = new Guest(
       customersData[1],
@@ -114,59 +127,100 @@ describe("Hotel", () => {
       customersData[2],
       bookingsData.filter((booking) => booking.userID === 16)
     );
-    hotel = new Hotel();
+    hotel = new Hotel(guests, rooms);
+
+    room1 = new Room({
+      bedSize: "queen",
+      bidet: true,
+      costPerNight: 300.0,
+      numBeds: 1,
+      number: 6,
+      roomType: "junior suite",
+    });
+
+    room2 = new Room({
+      bedSize: "king",
+      bidet: false,
+      costPerNight: 400.0,
+      numBeds: 2,
+      number: 18,
+      roomType: "junior suite",
+    });
+
+    room3 = new Room({
+      bedSize: "twin",
+      bidet: false,
+      costPerNight: 200.0,
+      numBeds: 2,
+      number: 9,
+      roomType: "suite",
+    });
+
+    booking1 = new Booking({
+      date: "2020/02/08",
+      id: "5fwrgu4i7k55hl78v",
+      roomNumber: 25,
+      roomServiceCharges: [],
+      userID: 1,
+    });
+
+    booking2 = new Booking({
+      date: "2020/01/25",
+      id: "5fwrgu4i7k55hl78r",
+      roomNumber: 23,
+      roomServiceCharges: [],
+      userID: 1,
+    });
+
+    booking3 = new Booking({
+      date: "2020/01/25",
+      id: "5fwrgu4i7k55hl78d",
+      roomNumber: 25,
+      roomServiceCharges: [],
+      userID: 2,
+    });
+
+    booking4 = new Booking({
+      date: "2020/01/22",
+      id: "5fwrgu4i7k55hl795",
+      roomNumber: 9,
+      roomServiceCharges: [],
+      userID: 2,
+    });
+
+    bookingArray = [];
+    bookingArray2 = [];
+    guests = [];
+    rooms = [];
+
+    bookingArray.push(booking1, booking2);
+    bookingArray2.push(booking3, booking4);
+
+    guests.push(customersData[0], customersData[1]);
+    rooms.push(room1, room2, room3);
   });
 
-  //soooo... the guest can do these from their class, needed?
-  it.skip("should store all the guests bookings both past and upcoming", () => {
-    expect(guest14.bookingsData).to.deep.equal([
-      {
-        id: "5fwrgu4i7k55hl6u7",
-        userID: 14,
-        date: "2022/01/16",
-        roomNumber: 17,
-      },
-      {
-        id: "5fwrgu4i7k55hl6w2",
-        userID: 14,
-        date: "2022/01/26",
-        roomNumber: 15,
-      },
-      {
-        id: "5fwrgu4i7k55hl6wd",
-        userID: 14,
-        date: "2022/01/12",
-        roomNumber: 22,
-      },
-    ]),
-      expect(guest15.bookingsData).to.deep.equal([
-        {
-          id: "5fwrgu4i7k55hl6tn",
-          userID: 15,
-          date: "2022/01/17",
-          roomNumber: 5,
-        },
-        {
-          id: "5fwrgu4i7k55hl6w1",
-          userID: 15,
-          date: "2022/02/19",
-          roomNumber: 8,
-        },
-      ]);
+  it("should be a function", function () {
+    expect(Hotel).to.be.a("function");
   });
 
-  it.skip("should return an error message if the guest has no bookings", () => {
-    expect(guest16.returnNoBookingsMessage()).to.equal(
-      "It looks like you haven't stayed with us yet."
-    );
+  it("should be an instance of hotel", function () {
+    expect(hotel).to.be.an.instanceof(Hotel);
   });
 
-  it.skip("should store the total amount a guest has spent on all hotel stays", () => {
-    expect(guest14.returnTotalSpentonRooms()).to.equal("$1000.00");
-    expect(guest14.returnTotalSpentonRooms()).to.equal("$1000.00");
+  it("should hold an array of guests", function () {
+    expect(hotel.guests).to.deep.equal([
+      customersData[0],
+      customersData[1],
+      customersData[2],
+    ]);
+    expect(hotel.guests.length).to.equal(3);
   });
 
-  it.skip("should return $0 if a guest has spent no money on any hotel stays", () => {
-    expect(guest16.returnTotalSpentonRooms()).to.equal("$0");
+  it("should find all rooms that are not booked on a given date", function () {
+    let vacant = hotel.findAvailableRooms(bookingArray2, "2020/01/24");
+    let vacant2 = hotel.findAvailableRooms(bookingArray2, "2020/01/22");
+    expect(vacant.length).to.equal(3);
+    expect(vacant2.length).to.equal(2);
   });
 });
