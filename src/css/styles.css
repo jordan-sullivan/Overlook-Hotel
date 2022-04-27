@@ -1,3 +1,79 @@
+/* * {
+  border: 2px solid black;
+} */
+
+html {
+  height: 100vh;
+}
+
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  /* font-family: $main-font; */
+  background: url(../images/lobby.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
+}
+
+nav {
+  /* background-color: #3b6265; */
+  background-image: linear-gradient(#3b6265, #fbe7e9);
+  width: 100vw;
+  height: 120px;
+  /* background-color: $black; */
+  /* color: $white; */
+  opacity: 70%;
+  /* z-index: 5; */
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  /* background-color: #3b6265; */
+  /* opacity: 70%; */
+  width: 100vw;
+}
+
+.title {
+  /* background-color: #798369; */
+  color: #452629;
+}
+h1 {
+  margin: 12px;
+  font-size: 28px;
+  font-weight: 600;
+  /* font-family: $fancy-font; */
+  font-style: italic;
+  letter-spacing: 1.2px;
+}
+
+h2 {
+  margin: 12px 0px 5px;
+  font-size: 20px;
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .hotel-branding {
+  margin: 10px;
+}
+body {
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
+} */
+
+.dashboard-view {
+  height: 100vh;
+}
+
+.hidden {
+  display: none;
 }
