@@ -13,7 +13,7 @@
         <header>
           <button class="gallery-button">Gallery</button>
           <section class="title">
-            <h1>The Overlook Hotel</h1>
+            <h1>The OH Login View</h1>
             <h2>Your Desert Oasis</h2>
           </section>
           <button class="new-member-button">New Member?</button>
@@ -27,7 +27,7 @@
         <header>
           <button class="gallery-button">Gallery</button>
           <section class="title">
-            <h1>The Overlook Hotel</h1>
+            <h1>The OH User View Page</h1>
             <h2>Your Desert Oasis</h2>
           </section>
           <div class="welcome-userbox">
@@ -47,7 +47,7 @@
       </nav>
     </section>
 
-    <section class="info-page hidden">
+    <section class="info-page">
       <main class="grid-container" id="gridContainer">
         <aside>
           <form>
@@ -58,58 +58,64 @@
             </div>
           </form>
         </aside>
+      </main>
     </section>
 
-        <section class="book-room user-view">
-          <div class="plan-trip-area">
-            <h1 class="">Book a Room</h1>
-            <form class="book-trip-form" id="bookRoomForm">
-              <!-- <span class="label-style">
-                    <label for="rooms" class="label-names">Select a Room</label>
-                    <select name="rooms" class="rooms-list" id="rooms" value="rooms"></select>
-                  </span> -->
-              <span class="label-style">
-                <label for="date" class="label-names">Arrival date</label>
-                <input
-                  type="date"
-                  class="date-picker"
-                  id="date"
-                  name="date"
-                  required
-                />
-              </span>
-              <span class="label-style">
-                <label for="guests" class="label-names">Number of Guests</label>
-                <input
-                  type="number"
-                  name="guests"
-                  id="guests"
-                  class="guests"
-                  required
-                />
-              </span>
-              <input
-                type="submit"
-                value="Find a Room"
-                id="calculateCostSubmit"
-                class="calculate-cost-button button"
-                aria-label="Calculate A Trip Cost"
-              />
-              <input
-                type="submit"
-                value="Confirm Booking"
-                id="bookHotelSubmit"
-                class="book-hotel-button hidden button"
-                aria-label="Confirm Room Booking"
-              />
-            </form>
-            <h2 class="estimated-cost"></h2>
-          </div>
-          <!-- <article class="available-rooms-wrapper room-preview">
+    <section class="book-room user-view">
+      <div class="plan-trip-area">
+        <h3 class="">Book a Room</h3>
+        <form class="book-trip-form" id="bookRoomForm">
+          <span class="label-style">
+            <label for="rooms" class="label-names">Select a Room</label>
+            <select
+              name="rooms"
+              class="rooms-list"
+              id="rooms"
+              value="rooms"
+            ></select>
+          </span>
+          <span class="label-style">
+            <label for="date" class="label-names">Arrival date</label>
+            <input
+              type="date"
+              class="date-picker"
+              id="date"
+              name="date"
+              required
+            />
+          </span>
+          <span class="label-style">
+            <label for="guests" class="label-names">Number of Guests</label>
+            <input
+              type="number"
+              name="guests"
+              id="guests"
+              class="guests"
+              required
+            />
+          </span>
+          <input
+            type="submit"
+            value="Find a Room"
+            id="calculateCostSubmit"
+            class="calculate-cost-button button"
+            aria-label="Calculate A Trip Cost"
+          />
+          <input
+            type="submit"
+            value="Confirm Booking"
+            id="bookHotelSubmit"
+            class="book-hotel-button hidden button"
+            aria-label="Confirm Room Booking"
+          />
+        </form>
+        <h2 class="estimated-cost"></h2>
+      </div>
+      <!-- <article class="available-rooms-wrapper room-preview">
               </article> -->
-        </section>
+    </section>
 
-        <!-- <section>
+    <!-- <section>
           <article>
             <div>
               <img />
@@ -127,7 +133,6 @@
             </section>
           </article>
         </section> -->
-      </main>
     <!-- </section> -->
     <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
     <script src="bundle.js"></script>

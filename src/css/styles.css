@@ -2,22 +2,6 @@
   border: 2px solid black;
 } */
 
-/* SIMPLE STRUCTURE
-The simple structure is convenient for a small project like a single web page. For that purpose, you need to create a very minimal structure. Here is an example:
-
-_base.sass — contains all the resets, variables, mixins, and utility classes
-_layout.sass — all the Sass code handling the layout, which is the container and grid systems
-_components.sass — everything that is reusable – buttons, navbars, cards, and so on
-_main.sass — the main partial should contain only the imports of the already mentioned files
-Another example of the same simple structure is the following:
-
-$teal: rgba(74, 116, 123, 0.90);
-$black: black;
-$white: white;
-$room-card: rgba(55, 52, 52, 0.94);
-$fancy-font: 'Spectral', serif;
-$main-font: 'Raleway', sans-serif; */
-
 html {
   height: 100vh;
 }
@@ -77,8 +61,8 @@ h2 {
 
 /* .hotel-branding {
   margin: 10px;
-} */
-/* body {
+}
+body {
   background: radial-gradient(
     circle,
     rgba(63, 94, 251, 1) 0%,
